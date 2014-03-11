@@ -90,6 +90,7 @@ print_r($wrapper->entryPost('f83u4d', $postArray));
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/forms/post/
+
 Full documentation: http://wufoo.com/docs/api/v3/entries/
 
 ### Fields
