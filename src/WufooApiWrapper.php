@@ -80,7 +80,8 @@ class WufooApiWrapper extends WufooApiWrapperBase
         foreach ($fields->Fields as $field) {
             $fieldHelper->Fields[$field->ID] = new ValueObject\WufooField($field);
             $fieldHelper->Hash[$field->ID] = $field;
-            if ($field->SubFields) {
+
+            if (isset($field->SubFields)) {
                 foreach ($field->SubFields as $subfield) {
                     $fieldHelper->Hash[$subfield->ID] = $subfield;
                 }
