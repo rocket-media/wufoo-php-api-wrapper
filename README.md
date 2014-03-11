@@ -21,8 +21,8 @@ Run `composer update`
 The API Wrapper is a collection of functions each for using a specific API. For example, this is how you would get data on your account's users:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper($apiKey, $subdomain);
-	print_r($wrapper->getUsers());
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper($apiKey, $subdomain);
+print_r($wrapper->getUsers());
 ```
 
 Some APIs need more information to be able to return the information they are supposed to. For example, the Entries API needs to know what form to return data from. Each will be documented below.
@@ -38,8 +38,8 @@ Each API returns its own set of specific information which is all documented on 
 Information about all users:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain')); //create the class
-	print_r($wrapper->getUsers());
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain')); //create the class
+print_r($wrapper->getUsers());
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/users/
@@ -49,15 +49,15 @@ Full documentation: http://wufoo.com/docs/api/v3/users/
 Information about all forms:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getForms($identifier = null)); //No identifier needed to retrieve all forms, otherwise pass in a form URL or hash
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getForms($identifier = null)); //No identifier needed to retrieve all forms, otherwise pass in a form URL or hash
 ```
 
 Information about a specific form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getForms($identifier = 'k4j9jw')); //Identifier can be either a form hash or form URL.
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getForms($identifier = 'k4j9jw')); //Identifier can be either a form hash or form URL.
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/forms/
@@ -67,25 +67,25 @@ Full documentation: http://wufoo.com/docs/api/v3/forms/
 Entries from a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getEntries('k4j9jw', 'forms', 'Filter1=EntryId+Is_equal_to+1')); //Notice the filter
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getEntries('k4j9jw', 'forms', 'Filter1=EntryId+Is_equal_to+1')); //Notice the filter
 ```
 
 Entries from a report:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getReportEntries('k4j9jw', 'Filter1=EntryId+Is_equal_to+1')); //Notice the filter
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getReportEntries('k4j9jw', 'Filter1=EntryId+Is_equal_to+1')); //Notice the filter
 ```
 
 Entries POST to a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
 
-	//NOTE: Create WufooSubmitFields for the $postArray values
-	$postArray = array(new WufooSubmitField('Field1', 'Booyah!'), new WufooSubmitField('Field1', '/files/myFile.txt', $isFile = true));
-	print_r($wrapper->entryPost('f83u4d', $postArray));
+//NOTE: Create WufooSubmitFields for the $postArray values
+$postArray = array(new WufooSubmitField('Field1', 'Booyah!'), new WufooSubmitField('Field1', '/files/myFile.txt', $isFile = true));
+print_r($wrapper->entryPost('f83u4d', $postArray));
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/forms/post/
@@ -96,15 +96,15 @@ Full documentation: http://wufoo.com/docs/api/v3/entries/
 Fields of a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getFields('j9js9r')); //Identifier is a form URL or hash
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getFields('j9js9r')); //Identifier is a form URL or hash
 ```
 
 Fields of a report:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getReportFields('j9js9r')); //Identifier is a reporyt URL or hash
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getReportFields('j9js9r')); //Identifier is a reporyt URL or hash
 ```
 
 Bear in mind that fields may have `SubFields`, as is the case when using Wufoo-provided fields like Name, which has First and Last as subfields. Testing for SubFields and looping through those within the main loop while processing the data is a good idea.
@@ -118,8 +118,8 @@ Comments are entered in the Wufoo.com Entry Manager.
 Get comments from a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getComments('j9js9r', $entryId = '1')); //You may remove the $entryId parameter to get all comments for a form by EntryId.
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getComments('j9js9r', $entryId = '1')); //You may remove the $entryId parameter to get all comments for a form by EntryId.
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/comments/
@@ -129,15 +129,16 @@ Full documentation: http://wufoo.com/docs/api/v3/comments/
 Information about all reports:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getReports());
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getReports());
 ```
 
 Information about single form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->getReports('a5u8r9'));
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->getReports('a5u8r9'));
+```
 
 Full documentation: http://wufoo.com/docs/api/v3/reports/
 
@@ -146,15 +147,15 @@ Full documentation: http://wufoo.com/docs/api/v3/reports/
 Add a Web Hook to a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->webHookPut('a5u8r9', 'http://coolguy.com/webhooker/', 'key', $metadata = false);
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->webHookPut('a5u8r9', 'http://coolguy.com/webhooker/', 'key', $metadata = false);
 ```
 
 Delete a Web Hook from a form:
 
 ```php
-	$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
-	print_r($wrapper->webHookDelete($formIdentifier = '432j83j', $hash = 'a5u8r9'));
+$wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
+print_r($wrapper->webHookDelete($formIdentifier = '432j83j', $hash = 'a5u8r9'));
 ```
 
 Full documentation: http://wufoo.com/docs/api/v3/webhooks/
