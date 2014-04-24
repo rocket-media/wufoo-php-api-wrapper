@@ -289,12 +289,12 @@ class WufooApiWrapper extends WufooApiWrapperBase
             'integrationKey' => $integrationKey,
             'subdomain' => $subdomain
         );
-        $url = 'http://wufoo.com/api/v3/login/';
-        $response = $curl->postAuthenticated($args, $url, null);
+        $this->curl = new WufooCurl();
+        $url = 'https://wufoo.com/api/v3/login.json';
+        $response = $this->curl->postAuthenticated($args, $url, null);
 
         return new Response\PostResponse($response);
     }
-
 
     public function webHookPut($formIdentifier, $webHookUrl, $handshakeKey, $metadata = false)
     {
