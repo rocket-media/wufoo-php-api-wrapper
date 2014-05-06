@@ -85,7 +85,7 @@ Entries POST to a form:
 $wrapper = new Adamlc\Wufoo\WufooApiWrapper('KUUI-22JI-ENID-IREW', 'yoursubdomain'); //create the class
 
 //NOTE: Create WufooSubmitFields for the $postArray values
-$postArray = array(new WufooSubmitField('Field1', 'Booyah!'), new WufooSubmitField('Field1', '/files/myFile.txt', $isFile = true));
+$postArray = array(new Adamlc\Wufoo\ValueObject\WufooSubmitField('Field1', 'Booyah!'), new Adamlc\Wufoo\ValueObject\WufooSubmitField('Field1', '/files/myFile.txt', $isFile = true));
 print_r($wrapper->entryPost('f83u4d', $postArray));
 ```
 
