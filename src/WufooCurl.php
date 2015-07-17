@@ -86,10 +86,7 @@ class WufooCurl
 
     public function setBasicCurlOptions()
     {
-        //http://bugs.php.net/bug.php?id=47030
-        curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->curl, CURLOPT_USERAGENT, 'Wufoo API Wrapper');
         curl_setopt($this->curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
