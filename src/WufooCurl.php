@@ -155,7 +155,7 @@ class WufooCurl
     {
         if ($response) {
             $obj = json_decode($response);
-            throw new WufooException('('.$obj->HTTPCode.') '.$obj->Text, $this->ResultStatus['HTTP_CODE']);
+            throw new WufooException('('.$obj->HTTPCode.') '.$obj->Text, $this->ResultStatus['http_code']);
         } else {
             throw new WufooException(
                 'We did not anticipate this error type. Please contact support here: support@wufoo.com',
