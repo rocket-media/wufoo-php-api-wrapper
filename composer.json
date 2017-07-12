@@ -1,11 +1,11 @@
 {
-    "name": "adamlc/wufoo-php-api-wrapper",
+    "name": "rocket-media/wufoo-php-api-wrapper",
     "description": "A PHP 5.3+ Wrapper for the WuFoo API",
     "license": "MIT",
     "authors": [
         {
-            "name": "Adam Curtis",
-            "email": "me@alc.im"
+            "name": "Garrett Henderson",
+            "email": "dev@rocketmedia.com"
         }
     ],
     "minimum-stability": "dev",
