@@ -90,7 +90,6 @@ class WufooCurl
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->curl, CURLOPT_USERAGENT, 'Wufoo API Wrapper');
         curl_setopt($this->curl, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-        curl_setopt($this->curl, CURLOPT_SSL_CIPHER_LIST, 'TLSv1');
     }
 
     private function setResultCodes()
